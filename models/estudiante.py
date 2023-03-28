@@ -13,10 +13,10 @@ estudiante = Table("estudiante", metadata,
                    Column("semestre", Interger, nulleable=False),
                    Column("periodo", VARCHAR(50), nulleable=False),
                    Column("fotografia", BLOB, nulleable=False),
-                   Column("LoginMatricula", varchar(10), ForeingKey(), nullable=False),
-                   Column("FacultadId", varchar(10), ForeingKey(), nullable=False),
-                   Column("VisitaBibioteca", varchar(10), ForeingKey(), nullable=False)
-
+                   Column("LoginMatricula", varchar(10),
+                          ForeingKey(), nullable=False),
+                   Column("FacultadId", varchar(10),
+                          ForeingKey(), nullable=False),
                    )
 
 meta_data.bind = engine
