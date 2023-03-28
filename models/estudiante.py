@@ -4,18 +4,20 @@ from config.db import meta_data
 
 
 estudiante = Table("estudiante", metadata,
-                   Column("matricula", VARCHAR(10), nullable=false),
+                   Column("matricula", VARCHAR(10),
+                          primary_key=True, nullable=False),
                    Column("nombre", VARCHAR(200), nullable=False),
-                   Column("telefono", Integer(10), nullable=false),
-                   Column("correo", char(18), nullable=false),
-                   Column("facultad", VARCHAR(100), nullable=false),
-                   Column("campus", VARCHAR(50), nullable=false),
-                   Column("semestre", Interger, nulleable=false),
-                   Column("periodo", VARCHAR(50), nulleable=false),
-                   Column("fotografia", BLOB, nulleable=false)
+                   Column("telefono", Integer(10), nullable=False),
+                   Column("correo", char(18), nullable=False),
+                   Column("campus", VARCHAR(50), nullable=False),
+                   Column("semestre", Interger, nulleable=False),
+                   Column("periodo", VARCHAR(50), nulleable=False),
+                   Column("fotografia", BLOB, nulleable=False),
+                   Column("LoginMatricula", varchar(10), ForeingKey(), nullable=False),
+                   Column("FacultadId", varchar(10), ForeingKey(), nullable=False),
+                   Column("VisitaBibioteca", varchar(10), ForeingKey(), nullable=False)
 
-
-                   ) 
+                   )
 
 meta_data.bind = engine
 meta_data.create_all()
